@@ -61,6 +61,12 @@ variable "software_version" {
   }
 }
 
+variable "oci_cache_config_set_id" {
+  description = "(Optional) (Updatable) The ID of the corresponding Oracle Cloud Infrastructure Cache Config Set for the cluster."
+  type        = string
+  default     = null
+}
+
 variable "subnet_id" {
   description = "(Required) The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the cluster's subnet."
   type        = string
