@@ -1,10 +1,10 @@
 variable "acl_string" {
-  description = "ACL string of Oracle Cloud Infrastructure cache user."
+  description = "(Required) (Updatable) ACL string of Oracle Cloud Infrastructure cache user."
   type        = string
 }
 
 variable "authentication_mode" {
-  description = "These are the Authentication details of an Oracle Cloud Infrastructure cache user."
+  description = "(Required) (Updatable) These are the Authentication details of an Oracle Cloud Infrastructure cache user."
   type = object({
     authentication_type = string
     hashed_passwords    = optional(list(string))
@@ -24,34 +24,34 @@ variable "authentication_mode" {
 }
 
 variable "compartment_id" {
-  description = "Oracle Cloud Infrastructure cache user compartment ID."
+  description = "(Required) (Updatable) Oracle Cloud Infrastructure cache user compartment ID."
   type        = string
 }
 
 variable "defined_tags" {
-  description = "Defined tags for this resource. Each key is predefined and scoped to a namespace. Example: `{\"foo-namespace.bar-key\": \"value\"}`"
+  description = "(Optional) (Updatable) Defined tags for this resource. Each key is predefined and scoped to a namespace. Example: `{\"foo-namespace.bar-key\": \"value\"}`"
   type        = map(string)
   default     = null
 }
 
 variable "description" {
-  description = "Description of Oracle Cloud Infrastructure cache user."
+  description = "(Required) (Updatable) Description of Oracle Cloud Infrastructure cache user."
   type        = string
 }
 
 variable "freeform_tags" {
-  description = "Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only. Example: `{\"bar-key\": \"value\"}`"
+  description = "(Optional) (Updatable) Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only. Example: `{\"bar-key\": \"value\"}`"
   type        = map(string)
   default     = {}
 }
 
 variable "name" {
-  description = "Oracle Cloud Infrastructure cache user name is required to connect to an Oracle Cloud Infrastructure cache cluster."
+  description = "(Required) Oracle Cloud Infrastructure cache user name is required to connect to an Oracle Cloud Infrastructure cache cluster."
   type        = string
 }
 
 variable "status" {
-  description = "Oracle Cloud Infrastructure cache user status. ON enables and OFF disables the Oracle Cloud Infrastructure cache user to login to the associated clusters. Default value is ON."
+  description = "(Optional) (Updatable) Oracle Cloud Infrastructure cache user status. ON enables and OFF disables the Oracle Cloud Infrastructure cache user to login to the associated clusters. Default value is ON."
   type        = string
   default     = null
 }
