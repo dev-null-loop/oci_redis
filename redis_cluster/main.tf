@@ -16,11 +16,11 @@ resource "oci_redis_redis_cluster" "this" {
       bucket    = ifos.value.bucket
       namespace = ifos.value.namespace
       dynamic "objects" {
-        for_each = ifos.value.objects
-        iterator = ob
-        content {
-          object = ob.value.object
-        }
+	for_each = ifos.value.objects
+	iterator = ob
+	content {
+	  object = ob.value.object
+	}
       }
     }
   }
@@ -28,4 +28,12 @@ resource "oci_redis_redis_cluster" "this" {
   oci_cache_config_set_id = var.oci_cache_config_set_id
   security_attributes     = var.security_attributes
   shard_count             = var.shard_count
+  provisioner "local-exec" {
+    when        = destroy
+    interpreter = ["/bin/bash", "-c"]
+    command = templatefile("${path.module}/redis-security-list-delete.tftpl", {
+      subnet_id      = self.subnet_id
+      compartment_id = self.compartment_id
+    })
+  }
 }

@@ -7,7 +7,7 @@ variable "backup_id" {
 variable "cluster_mode" {
   description = "(Optional) Specifies whether the cluster is sharded or non-sharded."
   type        = string
-  default     = "NONSHARDED"
+  default     = "SHARDED"
 }
 
 variable "compartment_id" {
@@ -67,7 +67,7 @@ variable "nsg_ids" {
 variable "shard_count" {
   description = "(Optional) (Updatable) The number of shards in sharded cluster. Only applicable when clusterMode is SHARDED."
   type        = number
-  default     = 1
+  default     = 3
 }
 
 variable "software_version" {
